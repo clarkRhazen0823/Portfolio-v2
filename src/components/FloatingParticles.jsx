@@ -10,12 +10,12 @@ export function FloatingParticles() {
       aria-hidden="true"
       className="absolute inset-0 overflow-hidden pointer-events-none"
     >
-      {[...Array(100)].map((_, i) => (
+      {[...Array(50)].map((_, i) => (
         <div
           key={i}
           className="absolute w-1.5 h-1.5 rounded-full opacity-60 glow-particle"
           style={{
-            backgroundColor: "#ffb347",
+            backgroundColor: '#ffb347',
             left: `${pseudoRandom(i + 1) * 100}%`,
             top: `${pseudoRandom(i + 31) * 100}%`,
             animation: `slow-drift ${
