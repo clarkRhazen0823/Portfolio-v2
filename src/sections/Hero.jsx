@@ -9,27 +9,47 @@ import {
   FaGithub,
   FaInstagram,
   FaLinkedin,
+  FaJava,
+  FaPython,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaNodeJs,
+  FaReact,
+  FaGitAlt,
 } from 'react-icons/fa6';
 
+import {
+  SiCplusplus,
+  SiTailwindcss,
+  SiVite,
+  SiApachenetbeanside,
+  SiJetbrains,
+  SiXampp,
+} from 'react-icons/si';
+
+import { DiVisualstudio } from 'react-icons/di';
+import { VscTerminalPowershell } from 'react-icons/vsc';
+
 const skills = [
-  'Java',
-  'Python',
-  'C/C++',
-  'HTML',
-  'CSS',
-  'Tailwind CSS',
-  'JavaScript',
-  'Node.JS',
-  'Vite',
-  'React',
-  'Visual Studio Code',
-  'Apache NetBeans',
-  'JetBrains IDEs',
-  'Git',
-  'Github',
-  'XAMPP',
-  'UV (venv for Python)',
-  'Powershell',
+  { icon: FaJava, label: 'Java' },
+  { icon: FaPython, label: 'Python' },
+  { icon: SiCplusplus, label: 'C/C++' },
+  { icon: FaHtml5, label: 'HTML' },
+  { icon: FaCss3Alt, label: 'CSS' },
+  { icon: SiTailwindcss, label: 'Tailwind CSS' },
+  { icon: FaJs, label: 'JavaScript' },
+  { icon: FaNodeJs, label: 'Node.JS' },
+  { icon: SiVite, label: 'Vite' },
+  { icon: FaReact, label: 'React' },
+  { icon: DiVisualstudio, label: 'Visual Studio Code' },
+  { icon: SiApachenetbeanside, label: 'Apache NetBeans' },
+  { icon: SiJetbrains, label: 'JetBrains IDEs' },
+  { icon: FaGitAlt, label: 'Git' },
+  { icon: FaGithub, label: 'Github' },
+  { icon: SiXampp, label: 'XAMPP' },
+  { icon: FaPython, label: 'UV (venv for Python)' },
+  { icon: VscTerminalPowershell, label: 'Powershell' },
 ];
 
 export const Hero = () => {
@@ -59,7 +79,7 @@ export const Hero = () => {
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                BS Information Technology
+                BS Information Technology Student
               </span>
             </div>
 
@@ -150,14 +170,19 @@ export const Hero = () => {
             Technologies I work with
           </p>
           <div className="relative overflow-hidden">
-            <div className="flex animate-marquee">
-              {[...skills, ...skills].map((skill, idx) => (
-                <div key={idx} className="shrink-0 px-8 py-4">
-                  <span className="text-xl font-semibold text-muted-foreground/50 hover:text-muted-foreground transition-colors">
-                    {skill}
-                  </span>
-                </div>
-              ))}
+            <div className="flex w-max animate-marquee">
+              {[...skills, ...skills].map((skill, idx) => {
+                const Icon = skill.icon;
+                return (
+                  <div
+                    key={`${skill.label}-${idx}`}
+                    className="shrink-0 px-8 py-4 flex items-center gap-2.5 text-muted-foreground/50 hover:text-muted-foreground transition-colors"
+                  >
+                    <Icon className="text-2xl shrink-0" />
+                    <span className="text-xl font-semibold">{skill.label}</span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>

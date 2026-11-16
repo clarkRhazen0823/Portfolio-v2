@@ -1,12 +1,12 @@
-import { FaCode } from 'react-icons/fa6';
+// import { FaCode } from 'react-icons/fa6';
 
-const highlights = [
-  {
-    icon: FaCode,
-    title: 'Title',
-    description: 'Description',
-  },
-];
+// const highlights = [
+//   {
+//     icon: FaCode,
+//     title: 'Title',
+//     description: 'Description',
+//   },
+// ];
 
 export const About = () => {
   return (
@@ -22,13 +22,13 @@ export const About = () => {
             </div>
             <h2 className="text-4xl md:text-5xl font-bold leading-tight animate-fade-in animation-delay-100 text-secondary-foreground">
               Building the future,
+              <br />
               <span className="font-serif italic font-normal text-white">
-                {'   '}
                 one component at a time.
               </span>
             </h2>
 
-            <div>
+            <div className="space-y-4 text-muted-foreground ">
               <p>
                 Lorem ipsum dolor, sit amet consectetur adipisicing elit.
                 Voluptas ab, modi eos, delectus officiis molestias ipsam ratione
@@ -45,6 +45,12 @@ export const About = () => {
                 deserunt reiciendis voluptatem tenetur neque perferendis in.
                 Natus necessitatibus dicta, harum dolor nulla officia sint porro
                 eos veniam nisi at quaerat, minima earum.
+              </p>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nam
+                recusandae ut temporibus nesciunt culpa explicabo impedit earum
+                expedita porro vitae, aperiam dolore omnis laudantium
+                reprehenderit.
               </p>
             </div>
           </div>
