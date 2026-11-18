@@ -3,28 +3,28 @@ import { Button } from '@/components/Button';
 import { FloatingParticles } from '@/components/FloatingParticles';
 import {
   FaAngleDown,
-  FaArrowRight,
-  FaDownload,
-  FaFacebook,
-  FaGithub,
-  FaInstagram,
-  FaLinkedin,
-  FaJava,
-  FaPython,
-  FaHtml5,
   FaCss3Alt,
-  FaJs,
-  FaNodeJs,
-  FaReact,
+  FaFacebook,
   FaGitAlt,
+  FaGithub,
+  FaHtml5,
+  FaInstagram,
+  FaJava,
+  FaJs,
+  FaLinkedin,
+  FaNodeJs,
+  FaPython,
+  FaReact,
 } from 'react-icons/fa6';
 
+import { LuArrowRight, LuDownload } from 'react-icons/lu';
+
 import {
+  SiApachenetbeanside,
   SiCplusplus,
+  SiJetbrains,
   SiTailwindcss,
   SiVite,
-  SiApachenetbeanside,
-  SiJetbrains,
   SiXampp,
 } from 'react-icons/si';
 
@@ -79,7 +79,7 @@ export const Hero = () => {
             <div className="animate-fade-in">
               <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-sm text-primary">
                 <span className="w-2 h-2 bg-primary rounded-full animate-pulse" />
-                BS Information Technology Student
+                BS Information Technology - Student
               </span>
             </div>
 
@@ -106,10 +106,10 @@ export const Hero = () => {
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 animate-fade-in animation-delay-300">
               <Button>
-                Contact Me <FaArrowRight />
+                Contact Me <LuArrowRight className="w-5 h-5" />
               </Button>
               <AnimatedBorderButton>
-                <FaDownload />
+                <LuDownload className="h-5 w-5" />
                 Download CV
               </AnimatedBorderButton>
             </div>
