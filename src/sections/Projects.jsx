@@ -1,6 +1,8 @@
 import { AnimatedBorderButton } from '@/components/AnimatedBorderButton';
+import { UnavailableDialog } from '@/components/UnavailableDialog';
+import { useState } from 'react';
 import { FaGithub } from 'react-icons/fa6';
-import { LuArrowUpRight } from 'react-icons/lu';
+import { LuArrowUpRight, LuSquareArrowOutUpRight } from 'react-icons/lu';
 
 const projects = [
   {
@@ -8,7 +10,7 @@ const projects = [
     description: 'Description',
     image: '/public/projects/project1.png',
     tags: ['HTML', 'CSS', 'JavaScript', 'PHP', 'Supabase'],
-    link: 'unavailable',
+    link: 'n/a',
     github: '#',
   },
   {
@@ -22,6 +24,19 @@ const projects = [
 ];
 
 export const Projects = () => {
+  const [modal, setModal] = useState({
+    isOpen: false,
+    projectTitle: '',
+    type: '',
+  });
+
+  const handleLinkClick = (e, url, projectTitle, type) => {
+    if (url === 'n/a' || url === '#' || !url) {
+      e.preventDefault();
+      setModal({ isOpen: true, projectTitle, type });
+    }
+  };
+
   return (
     <section id="project" className="relative py-32 overflow-hidden">
       {/* BG Glows */}
@@ -67,13 +82,29 @@ export const Projects = () => {
                 <div className="absolute inset-0 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   <a
                     href={project.link}
+                    onClick={(e) =>
+                      handleLinkClick(
+                        e,
+                        project.link,
+                        project.title,
+                        'Live Demo'
+                      )
+                    }
                     className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
                     target="_blank"
                   >
-                    <LuArrowUpRight className="w-5 h-5" />
+                    <LuSquareArrowOutUpRight className="w-5 h-5" />
                   </a>
                   <a
                     href={project.github}
+                    onClick={(e) =>
+                      handleLinkClick(
+                        e,
+                        project.github,
+                        project.title,
+                        'GitHub Repository'
+                      )
+                    }
                     className="p-3 rounded-full glass hover:bg-primary hover:text-primary-foreground transition-all"
                     target="_blank"
                   >
@@ -109,11 +140,19 @@ export const Projects = () => {
 
         {/* View All CTA */}
         <div className="text-center mt-12 animate-fade-in animation-delay-500">
-          <AnimatedBorderButton>
-            View All Projects <LuArrowUpRight className="h-5 w-5" />
+          <AnimatedBorderButton >
+            <LuSquareArrowOutUpRight className="h-5 w-5" />
+            View All Projects
           </AnimatedBorderButton>
         </div>
       </div>
+
+      <UnavailableDialog
+        isOpen={modal.isOpen}
+        onClose={() => setModal((prev) => ({ ...prev, isOpen: false }))}
+        projectTitle={modal.projectTitle}
+        type={modal.type}
+      />
     </section>
   );
 };
